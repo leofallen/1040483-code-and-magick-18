@@ -39,9 +39,10 @@ var EYES_COLORS = [
   'green'
 ];
 
-var players = 4;
+var PLAYERS = 4;
 
 var userDialog = document.querySelector('.setup');
+var setupSimilar = userDialog.querySelector('.setup-similar');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
@@ -69,8 +70,6 @@ var getWizards = function (playersNumber) {
   return result;
 };
 
-var wizards = getWizards(players);
-
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
@@ -91,7 +90,8 @@ var getFragment = function (arr) {
   return fragment;
 };
 
+var wizards = getWizards(PLAYERS);
 similarListElement.appendChild(getFragment(wizards));
 
 userDialog.classList.remove('hidden');
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
+setupSimilar.classList.remove('hidden');
